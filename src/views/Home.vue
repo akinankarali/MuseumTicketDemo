@@ -1,18 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <CustomText>Home</CustomText>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import CustomText from '@/components/CustomText'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
-    HelloWorld,
-  },
-};
+    CustomText
+  }
+}
 </script>
+
+<style lang="scss" scope>
+span {
+  color: #{'rgb(var(--discounted-color))'};
+}
+</style>

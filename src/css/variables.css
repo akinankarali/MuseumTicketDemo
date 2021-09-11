@@ -1,0 +1,10 @@
+:root {
+    --header-height: 60px;
+  
+    --primary: 68, 74, 89;
+    --secondary: 217, 217, 217;
+    --subtitle: 128, 128, 128;
+    --bg-color: 248, 248, 248;
+    --w8: 255, 255, 255;
+    --discounted-color: 245, 75, 94;
+  }
