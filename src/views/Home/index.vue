@@ -20,6 +20,6 @@ export default {
 
 <style lang="scss" scope>
 span {
-  color: #{'rgb(var(--discounted-color))'};
+  color: #{'rgb(var(--secondary))'};
 }
 </style>
