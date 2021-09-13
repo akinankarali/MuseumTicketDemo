@@ -40,7 +40,7 @@ export default {
   top: 0;
   right: 0;
 
-  .header-inner {
+  &-inner {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: var(--header-height);
