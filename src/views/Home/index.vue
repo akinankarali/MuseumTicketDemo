@@ -1,19 +1,16 @@
 <template>
   <div class="home">
-    <CustomText>Home</CustomText>
-    <IconBag />
+    <Card title="AAA" description="BBB" price="130"/>
   </div>
 </template>
 
 <script>
-import CustomText from '@/components/CustomText'
-import IconBag from '@/assets/svg/bag.svg'
+import Card from '@/components/Card'
 
 export default {
   name: 'Home',
   components: {
-    CustomText,
-    IconBag
+    Card
   }
 }
 </script>
