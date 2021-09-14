@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Card title="AAA" description="BBB" price="130"/>
+    <Card title="AAA" description="BBB" price="130" />
   </div>
 </template>
 
