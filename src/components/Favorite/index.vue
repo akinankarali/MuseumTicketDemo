@@ -18,9 +18,18 @@ export default {
 
 <style lang="scss" scoped>
 .favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 10px;
+  right: 5px;
+
   button {
     border: 1px solid #{'rgb(var(--secondary))'};
-    padding: 6px;
+    background-color: #{'rgb(var(--w8))'};
+    padding: 7px;
     border-radius: 999px;
     display: inline-flex;
     transition: border 0.5s;

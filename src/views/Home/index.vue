@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scope>
-span {
-  color: #{'rgb(var(--secondary))'};
+.home {
+  padding: 10px;
 }
 </style>

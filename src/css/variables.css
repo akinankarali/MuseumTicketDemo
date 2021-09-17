@@ -1,11 +1,19 @@
 :root {
   --header-height: 60px;
 
-  --primary: 68, 74, 89;
-  --secondary: 217, 217, 217;
-  --subtitle: 128, 128, 128;
-  --bg-color: 248, 248, 248;
-  --w8: 255, 255, 255;
-  --discounted-color: 245, 75, 94;
-  --border-color: 219, 219, 219;
+  /* primary: #444a59,
+   secondary: #d9d9d9
+   subtitle: #808080
+   bg-color: #f8f8f8
+   w8: #ffffff
+   discounted-color: #f54b5e
+   border-color: #dbdbdb
+  */
+  --primary: 68, 74, 89; 
+  --secondary: 217, 217, 217; 
+  --subtitle: 128, 128, 128; 
+  --bg-color: 248, 248, 248; 
+  --w8: 255, 255, 255; 
+  --discounted-color: 245, 75, 94; 
+  --border-color: 219, 219, 219; 
 }
