@@ -18,15 +18,23 @@
       </div>
       <!-- price-->
       <div class="card-price">
-        <CustomText size="large" class="card-price-striked"
+        <CustomText
+          size="large"
+          :class="!isPriceDiscounted ? 'card-price' : 'card-price-striked'"
           >${{ price }}</CustomText
         >
-        <CustomText size="large" class="card-price-discounted"
-          >${{ price }}</CustomText
+        <CustomText
+          size="large"
+          class="card-price-discounted"
+          v-if="isPriceDiscounted"
+          >${{ discountedPrice }}</CustomText
         >
       </div>
       <!-- add button-->
-      <button class="card-button" type="submit">ADD TO CART</button>
+      <button class="card-button in-cart" type="submit" v-if="isInCart">
+        IN CART
+      </button>
+      <button class="card-button" type="submit" v-else>ADD TO CART</button>
     </div>
   </div>
 </template>
@@ -51,6 +59,16 @@ export default {
     price: {
       type: Number,
       default: 0
+    },
+    discountedPrice: {
+      type: Number,
+      default: 0
+    },
+    isPriceDiscounted: {
+      type: Boolean
+    },
+    isInCart: {
+      type: Boolean
     }
   }
 }
@@ -127,6 +145,11 @@ export default {
         border: 1px solid #{'rgb(var(--primary))'};
         color: #{'rgb(var(--w8))'};
         background-color: #{'rgb(var(--primary))'};
+      }
+
+      &.in-cart {
+        pointer-events: none;
+        background-color: #d9d9d9;
       }
     }
   }
