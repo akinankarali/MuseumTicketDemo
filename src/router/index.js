@@ -9,25 +9,25 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/bag',
-    name: 'Bag',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "bag" */ '../views/Bag/index.vue')
-  },
-  {
-    path: '/wishlist',
-    name: 'Wishlist',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "bag" */ '../views/Wishlist/index.vue')
   }
+  // {
+  //   path: '/bag',
+  //   name: 'Bag',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () =>
+  //     import(/* webpackChunkName: "bag" */ '../views/Bag/index.vue')
+  // },
+  // {
+  //   path: '/wishlist',
+  //   name: 'Wishlist',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () =>
+  //     import(/* webpackChunkName: "bag" */ '../views/Wishlist/index.vue')
+  // }
 ]
 
 const router = new VueRouter({

@@ -9,30 +9,21 @@
         <input type="text" placeholder="Search" />
       </form>
 
-      <nav class="navigation">
-        <router-link to="/bag">
-          <IconBag />
-        </router-link>
-        <router-link to="/wishlist">
-          <IconWishlist />
-        </router-link>
-      </nav>
+      <Basket />
     </Container>
   </header>
 </template>
 <script>
-import IconBag from '@/assets/svg/bag.svg'
-import IconWishlist from '@/assets/svg/wishlist.svg'
 import Container from '@/components/Container'
 import CustomText from '@/components/CustomText'
+import Basket from '@/components/Basket'
 
 export default {
   name: 'MainHeader',
   components: {
-    IconBag,
-    IconWishlist,
     Container,
-    CustomText
+    CustomText,
+    Basket
   }
 }
 </script>
@@ -53,7 +44,7 @@ export default {
     align-items: center;
 
     text-transform: uppercase;
-    background-color: #ffffff;
+    background-color: #{'rgb(var(--w8))'};
     border-bottom: 1px solid #{'rgb(var(--border-color))'};
   }
   .logo {
@@ -72,15 +63,6 @@ export default {
       border-radius: 4px;
       padding-left: 20px;
       padding-right: 20px;
-    }
-  }
-  .navigation {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    a {
-      margin-left: 20px;
     }
   }
 }
