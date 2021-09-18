@@ -2,7 +2,7 @@
   <div class="basket">
     <div class="basket-bag">
       <div class="basket-price">
-        <CustomText size="large">$210</CustomText>
+        <CustomText tag="p" size="large">$210</CustomText>
       </div>
       <IconBag />
       <span class="basket-counter">10</span>
@@ -16,7 +16,7 @@
 <script>
 import IconBag from '@/assets/svg/bag.svg'
 import IconWishlist from '@/assets/svg/wishlist.svg'
-import CustomText from '@/assets/svg/wishlist.svg'
+import CustomText from '@/components/CustomText'
 
 export default {
   name: 'Basket',
