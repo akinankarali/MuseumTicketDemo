@@ -1,7 +1,9 @@
 <template>
   <header class="header">
     <Container class="header-inner">
-      <router-link to="/" class="logo">TUI</router-link>
+      <router-link to="/" class="logo">
+        <CustomText tag="h1" size="xlarge">TUI</CustomText>
+      </router-link>
 
       <form class="search">
         <input type="text" placeholder="Search" />
@@ -22,12 +24,15 @@
 import IconBag from '@/assets/svg/bag.svg'
 import IconWishlist from '@/assets/svg/wishlist.svg'
 import Container from '@/components/Container'
+import CustomText from '@/components/CustomText'
+
 export default {
   name: 'MainHeader',
   components: {
     IconBag,
     IconWishlist,
-    Container
+    Container,
+    CustomText
   }
 }
 </script>

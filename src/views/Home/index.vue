@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div :key="index" v-for="(item, index) in list">
+    <div :key="index" v-for="(item, index) in list" class="product-item">
       <Card
         :title="item.title"
         :description="item.description"
@@ -70,5 +70,9 @@ export default {
   flex: 0 1 auto;
   flex-flow: row wrap;
   margin: 0 -10px;
+
+  .product-item {
+    padding: 10px;
+  }
 }
 </style>
