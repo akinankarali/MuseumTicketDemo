@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="product-item">
+    <div class="product-items">
       <Card
         v-for="product in showProducts"
         :key="product.uuid"
@@ -45,10 +45,13 @@ export default {
   flex-flow: row wrap;
   margin: 0 -10px;
 
-  .product-item {
-    display: flex;
-    flex-wrap: wrap;
+  .product-items {
     justify-content: center;
+
+    display: flex;
+    flex: 0 1 auto;
+    flex-flow: row wrap;
+    margin: 0 -10px;
   }
 }
 </style>
