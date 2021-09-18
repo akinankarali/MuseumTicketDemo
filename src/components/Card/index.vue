@@ -82,7 +82,7 @@ export default {
   background-color: #{'rgb(var(--w8))'};
 
   .card-header {
-    padding: 20px 30px;
+    padding: 20px;
     position: relative;
     text-align: center;
 
@@ -103,6 +103,12 @@ export default {
       font-family: 'Lato-Bold', sans-serif;
       letter-spacing: 1.37px;
       text-transform: uppercase;
+      h2 {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 290px;
+      }
     }
     .card-description {
       padding-bottom: 10px;
@@ -111,6 +117,12 @@ export default {
       letter-spacing: 0.43px;
 
       color: #{'rgb(var(--subtitle))'};
+      p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 290px;
+      }
     }
     .card-price {
       padding-bottom: 20px;
