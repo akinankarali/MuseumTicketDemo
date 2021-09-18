@@ -1,13 +1,15 @@
 <template>
   <div class="home">
-    <div :key="index" v-for="(item, index) in list" class="product-item">
+    <div class="product-item">
       <Card
-        :title="item.title"
-        :description="item.description"
-        :price="item.price"
-        :discountedPrice="item.discountedPrice"
-        :isPriceDiscounted="item.isPriceDiscounted"
-        :isInCart="item.isInCart"
+        v-for="product in showProducts"
+        :key="product.uuid"
+        :title="product.title"
+        :description="product.description"
+        :photo="product.cover_image_url"
+        :price="product.original_retail_price"
+        :discounted="product.discount"
+        :retailPrice="product.retail_price"
       />
     </div>
   </div>
@@ -15,48 +17,20 @@
 
 <script>
 import Card from '@/components/Card'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
     Card
   },
-  data() {
-    return {
-      list: [
-        {
-          title: 'PRODUCT TITLE-1',
-          description: 'Torino',
-          price: 80,
-          discountedPrice: 50,
-          isPriceDiscounted: true,
-          isInCart: false
-        },
-        {
-          title: 'PRODUCT TITLE-2',
-          description: 'Milan',
-          price: 130,
-          discountedPrice: 0,
-          isPriceDiscounted: false,
-          isInCart: true
-        },
-        {
-          title: 'PRODUCT TITLE-3',
-          description: 'Cambridge',
-          price: 250,
-          discountedPrice: 200,
-          isPriceDiscounted: true,
-          isInCart: false
-        },
-        {
-          title: 'PRODUCT TITLE-4',
-          description: 'Amsterdam',
-          price: 100,
-          discountedPrice: 0,
-          isPriceDiscounted: false,
-          isInCart: false
-        }
-      ]
+  mounted() {
+    this.$store.dispatch('fetchProducts')
+  },
+  computed: {
+    ...mapGetters(['getProducts']),
+    showProducts() {
+      return this.getProducts.data
     }
   }
 }
@@ -72,7 +46,9 @@ export default {
   margin: 0 -10px;
 
   .product-item {
-    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 </style>

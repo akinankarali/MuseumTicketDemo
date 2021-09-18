@@ -3,7 +3,7 @@
     <!-- image & header -->
     <div class="card-header">
       <figure class="card-image">
-        <img src="../../assets/images/activity_image.jpeg" alt="Rome" />
+        <img :src="photo" alt="Rome" />
       </figure>
       <Favorite />
     </div>
@@ -20,14 +20,14 @@
       <div class="card-price">
         <CustomText
           size="large"
-          :class="!isPriceDiscounted ? 'card-price' : 'card-price-striked'"
-          >${{ price }}</CustomText
+          :class="!isDiscount ? 'card-price' : 'card-price-striked'"
+          >{{ price.formatted_value }}</CustomText
         >
         <CustomText
           size="large"
           class="card-price-discounted"
-          v-if="isPriceDiscounted"
-          >${{ discountedPrice }}</CustomText
+          v-if="isDiscount"
+          >{{ retailPrice.formatted_value }}</CustomText
         >
       </div>
       <!-- add button-->
@@ -47,6 +47,11 @@ export default {
     CustomText,
     Favorite
   },
+  data() {
+    return {
+      isDiscount: this.discounted > 0 ? true : false
+    }
+  },
   props: {
     title: {
       type: String,
@@ -57,18 +62,21 @@ export default {
       default: ''
     },
     price: {
+      type: Object
+    },
+    retailPrice: {
+      type: Object
+    },
+    discounted: {
       type: Number,
       default: 0
-    },
-    discountedPrice: {
-      type: Number,
-      default: 0
-    },
-    isPriceDiscounted: {
-      type: Boolean
     },
     isInCart: {
       type: Boolean
+    },
+    photo: {
+      type: String,
+      default: ''
     }
   }
 }
@@ -78,8 +86,11 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
+  max-height: 500px;
+  max-width: 370px;
   border-radius: 3px;
   background-color: #{'rgb(var(--w8))'};
+  margin: 10px;
 
   .card-header {
     padding: 20px;
@@ -87,8 +98,8 @@ export default {
     text-align: center;
 
     img {
-      max-width: 100%;
-      height: auto;
+      max-width: 340px;
+      max-height: 500px;
     }
   }
   .card-details {
@@ -105,9 +116,8 @@ export default {
       text-transform: uppercase;
       h2 {
         overflow: hidden;
-        white-space: nowrap;
+        white-space: break-spaces;
         text-overflow: ellipsis;
-        max-width: 290px;
       }
     }
     .card-description {
@@ -119,9 +129,8 @@ export default {
       color: #{'rgb(var(--subtitle))'};
       p {
         overflow: hidden;
-        white-space: nowrap;
+        white-space: break-spaces;
         text-overflow: ellipsis;
-        max-width: 290px;
       }
     }
     .card-price {
