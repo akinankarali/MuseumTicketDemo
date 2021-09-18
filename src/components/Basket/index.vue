@@ -16,12 +16,14 @@
 <script>
 import IconBag from '@/assets/svg/bag.svg'
 import IconWishlist from '@/assets/svg/wishlist.svg'
+import CustomText from '@/assets/svg/wishlist.svg'
 
 export default {
-  name: 'MainHeader',
+  name: 'Basket',
   components: {
     IconBag,
-    IconWishlist
+    IconWishlist,
+    CustomText
   }
 }
 </script>
