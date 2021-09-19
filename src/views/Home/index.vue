@@ -2,7 +2,7 @@
   <div class="home">
     <div class="product-items">
       <Card
-        v-for="product in showProducts"
+        v-for="product in filteredProducts"
         :key="product.uuid"
         :title="product.title"
         :description="product.description"
@@ -17,7 +17,7 @@
 
 <script>
 import Card from '@/components/Card'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'Home',
@@ -29,8 +29,16 @@ export default {
   },
   computed: {
     ...mapGetters(['getProducts']),
-    showProducts() {
-      return this.getProducts.data
+    ...mapState(['search']),
+    filteredProducts() {
+      return this.getProducts.filter((product) =>
+        product?.title.toLowerCase().includes(this.search.toLowerCase())
+      )
+    }
+  },
+  methods: {
+    setProductList() {
+      this.productsList = this.getProducts
     }
   }
 }

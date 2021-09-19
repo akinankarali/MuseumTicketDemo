@@ -6,7 +6,12 @@
       </router-link>
 
       <form class="search">
-        <input type="text" placeholder="Search" />
+        <input
+          type="text"
+          v-model.trim="search"
+          :input="setSearchInput()"
+          placeholder="Search"
+        />
       </form>
 
       <Basket />
@@ -24,6 +29,16 @@ export default {
     Container,
     CustomText,
     Basket
+  },
+  data() {
+    return {
+      search: ''
+    }
+  },
+  methods: {
+    setSearchInput() {
+      this.$store.commit('setSearch', this.search)
+    }
   }
 }
 </script>

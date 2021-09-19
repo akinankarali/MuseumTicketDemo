@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    search: ''
   },
   getters: {
     getProducts(state) {
@@ -19,12 +20,17 @@ export default new Vuex.Store({
     },
     setProducts(state, data) {
       state.products = data
+    },
+    setSearch(state, payload) {
+      state.search = payload
     }
   },
   actions: {
     async fetchProducts({ commit }) {
-      const data = await axios.get('https://sandbox.musement.com/api/v3/events')
-      commit('setProducts', data)
+      const products = await axios.get(
+        'https://sandbox.musement.com/api/v3/events'
+      )
+      commit('setProducts', products.data)
     }
   }
 })
