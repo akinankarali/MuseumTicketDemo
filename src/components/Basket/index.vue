@@ -2,14 +2,17 @@
   <div class="basket">
     <div class="basket-bag">
       <div class="basket-price">
-        <CustomText tag="p" size="large">$210</CustomText>
+        <CustomText tag="p" size="large">$ {{ calculateTotal }}</CustomText>
       </div>
       <IconBag />
-      <span class="basket-counter">10</span>
+      <span class="basket-counter">{{ basketBagList.length }}</span>
+      <BasketDropdown />
     </div>
+
     <div class="basket-wishlist">
       <IconWishlist />
-      <span class="basket-counter">5</span>
+      <span class="basket-counter">{{ basketWishList.length }}</span>
+      <BasketWishlistDropdown />
     </div>
   </div>
 </template>
@@ -17,13 +20,31 @@
 import IconBag from '@/assets/svg/bag.svg'
 import IconWishlist from '@/assets/svg/wishlist.svg'
 import CustomText from '@/components/CustomText'
+import BasketDropdown from '@/components/BasketDropdown'
+import BasketWishlistDropdown from '@/components/BasketWishlistDropdown'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'Basket',
   components: {
     IconBag,
     IconWishlist,
-    CustomText
+    CustomText,
+    BasketDropdown,
+    BasketWishlistDropdown
+  },
+  computed: {
+    ...mapGetters(['getProducts']),
+    ...mapState(['basketBagList', 'basketWishList']),
+    calculateTotal() {
+      let result = this.getProducts.filter((product) =>
+        this.basketBagList.some((item) => product.uuid === item)
+      )
+      let total = 0
+      result.map((item) => (total += item?.retail_price?.value))
+      this.$emit('totalPrice', total)
+      return total
+    }
   }
 }
 </script>
@@ -46,6 +67,12 @@ export default {
   }
 
   .basket-bag {
+    float: right;
+    text-align: right;
+    position: relative;
+    &:hover > .basket-dropdown {
+      transform: scale(1);
+    }
     svg {
       margin-left: 5px !important;
     }
@@ -62,8 +89,15 @@ export default {
     font-size: 8px;
     text-align: center;
     border-radius: 50%;
-    color: #ffffff;
-    background-color: #358ed7;
+    color: #{'rgb(var(--w8))'};
+    background-color: #{'rgb(var(--basket-counter))'};
+  }
+  .basket-wishlist {
+    position: relative;
+
+    &:hover > .basket-dropdown {
+      transform: scale(1);
+    }
   }
 }
 </style>

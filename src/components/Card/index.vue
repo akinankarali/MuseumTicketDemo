@@ -6,7 +6,7 @@
         <figure class="card-image">
           <img :src="photo" alt="Rome" />
         </figure>
-        <Favorite />
+        <Favorite :id="id" />
       </div>
       <div class="card-details">
         <!-- title -->
@@ -32,10 +32,12 @@
           >
         </div>
         <!-- add button-->
-        <button class="card-button in-cart" type="submit" v-if="isInCart">
+        <button class="card-button in-cart" type="button" v-if="isInCart">
           IN CART
         </button>
-        <button class="card-button" type="submit" v-else>ADD TO CART</button>
+        <button class="card-button" type="button" @click="addCart" v-else>
+          ADD TO CART
+        </button>
       </div>
     </div>
   </div>
@@ -51,7 +53,9 @@ export default {
   },
   data() {
     return {
-      isDiscount: this.discounted > 0 ? true : false
+      isDiscount: this.discounted > 0 ? true : false,
+      quantity: 0,
+      dublicated: []
     }
   },
   props: {
@@ -79,6 +83,24 @@ export default {
     photo: {
       type: String,
       default: ''
+    },
+    id: {
+      type: String
+    }
+  },
+  methods: {
+    addCart() {
+      this.id ? this.$store.state.basketBagList.push(this.id) : []
+      this.toFindDuplicates()
+      this.quantity++
+    },
+    toFindDuplicates() {
+      const data = this.$store.state.basketBagList
+      this.duplicated = data.filter(
+        (item, index) => index !== data.indexOf(item)
+      )
+      this.duplicated.length > 0 ? this.$store.state.itemCount++ : []
+      return this.duplicated
     }
   }
 }

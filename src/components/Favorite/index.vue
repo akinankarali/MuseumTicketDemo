@@ -1,6 +1,6 @@
 <template>
   <div class="favorite">
-    <button>
+    <button type="button" @click="addWishlist">
       <IconWishlist />
     </button>
   </div>
@@ -12,6 +12,17 @@ export default {
   name: 'Favorite',
   components: {
     IconWishlist
+  },
+  props: {
+    id: {
+      type: String
+    }
+  },
+  methods: {
+    addWishlist() {
+      this.id ? this.$store.state.basketWishList.push(this.id) : []
+      console.log('basket: ', this.$store.state.basketWishList)
+    }
   }
 }
 </script>
