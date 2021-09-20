@@ -7,7 +7,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     products: [],
-    search: ''
+    search: '',
+    basketBagList: [],
+    basketWishList: [],
+    itemCount: 1
   },
   getters: {
     getProducts(state) {

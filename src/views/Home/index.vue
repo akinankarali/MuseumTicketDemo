@@ -10,6 +10,7 @@
         :price="product.original_retail_price"
         :discounted="product.discount"
         :retailPrice="product.retail_price"
+        :id="product.uuid"
       />
     </div>
 
@@ -34,7 +35,7 @@
 
 <script>
 import Card from '@/components/Card'
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters, mapState, mapMutations } from 'vuex'
 import VueJsPaginate from 'vuejs-paginate'
 
 export default {
@@ -54,7 +55,8 @@ export default {
   },
   computed: {
     ...mapGetters(['getProducts']),
-    ...mapState(['search']),
+    ...mapState(['search'], ['basketBagList']),
+    ...mapMutations(['setProducts']),
     filteredProducts() {
       return this.getItems.filter((product) =>
         product?.title.toLowerCase().includes(this.search.toLowerCase())

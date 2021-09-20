@@ -8,6 +8,7 @@
    w8: #ffffff
    discounted-color: #f54b5e
    border-color: #dbdbdb
+   basket-counter: #358ed7
   */
   --primary: 68, 74, 89; 
   --secondary: 217, 217, 217; 
@@ -16,4 +17,5 @@
   --w8: 255, 255, 255; 
   --discounted-color: 245, 75, 94; 
   --border-color: 219, 219, 219; 
+  --basket-counter: 53, 142, 215
 }
