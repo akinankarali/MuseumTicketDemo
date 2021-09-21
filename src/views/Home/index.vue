@@ -35,7 +35,7 @@
 
 <script>
 import Card from '@/components/Card'
-import { mapGetters, mapState, mapMutations } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import VueJsPaginate from 'vuejs-paginate'
 
 export default {
@@ -56,7 +56,6 @@ export default {
   computed: {
     ...mapGetters(['getProducts']),
     ...mapState(['search'], ['basketBagList']),
-    ...mapMutations(['setProducts']),
     filteredProducts() {
       return this.getItems.filter((product) =>
         product?.title.toLowerCase().includes(this.search.toLowerCase())

@@ -45,6 +45,8 @@
 <script>
 import CustomText from '@/components/CustomText'
 import Favorite from '@/components/Favorite'
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Card',
   components: {
@@ -55,7 +57,8 @@ export default {
     return {
       isDiscount: this.discounted > 0 ? true : false,
       quantity: 0,
-      dublicated: []
+      isInCart: false,
+      dublicatedItem: []
     }
   },
   props: {
@@ -77,9 +80,6 @@ export default {
       type: Number,
       default: 0
     },
-    isInCart: {
-      type: Boolean
-    },
     photo: {
       type: String,
       default: ''
@@ -89,18 +89,21 @@ export default {
     }
   },
   methods: {
+    ...mapGetters(['getProducts']),
+
     addCart() {
       this.id ? this.$store.state.basketBagList.push(this.id) : []
-      this.toFindDuplicates()
-      this.quantity++
-    },
-    toFindDuplicates() {
-      const data = this.$store.state.basketBagList
-      this.duplicated = data.filter(
-        (item, index) => index !== data.indexOf(item)
+      this.$store.state.basketBagList.map((item) => {
+        this.$store.state.products.map((product) => {
+          item == product.uuid
+            ? (this.isInCart = false)
+            : (this.isInCart = true)
+        })
+      })
+      console.log(
+        '$store.state.basketBagList: ',
+        this.$store.state.basketBagList
       )
-      this.duplicated.length > 0 ? this.$store.state.itemCount++ : []
-      return this.duplicated
     }
   }
 }
