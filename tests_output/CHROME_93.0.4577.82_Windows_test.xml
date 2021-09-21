@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="test"
+    errors="0" failures="1" hostname="" id="" package="test" skipped="0"
+    tests="1" time="6.298" timestamp="">
+  
+    <testcase name="should work site" classname="test" time="6.298" assertions="1">  <failure message="Timed out while waiting for element &lt;#app&gt; to be present for 5000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (5225ms)">    at Object.should work site (C:\Users\saim.ankarali\Desktop\zzz\js_challenge_saim-ankarali\tests\e2e\test.js:5:8)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
