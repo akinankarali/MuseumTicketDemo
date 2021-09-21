@@ -10,7 +10,7 @@ export default new Vuex.Store({
     search: '',
     basketBagList: [],
     basketWishList: [],
-    itemCount: 1
+    itemCount: 0
   },
   getters: {
     getProducts(state) {
