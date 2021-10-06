@@ -2,7 +2,7 @@
   <header class="header">
     <Container class="header-inner">
       <router-link to="/" class="logo">
-        <CustomText tag="h1" size="xlarge">TUI</CustomText>
+        <CustomText tag="h1" size="xlarge">Muse</CustomText>
       </router-link>
 
       <form class="search">
