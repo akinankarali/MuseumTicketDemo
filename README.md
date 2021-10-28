@@ -1,4 +1,4 @@
-# js_challenge_saim-ankarali
+# MuseumTicketDemo
 
 ## Project setup
 ```
